@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdullah Adnan | AI & Automation Developer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: #090d16;
+      color: #e2e8f0;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    /* Main Container Grid */
+    .portfolio-wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 32px;
+    }
+
+    /* ================= LEFT SIDEBAR ================= */
+    .sidebar {
+      background: #111726;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 32px 24px;
+      height: fit-content;
+      position: sticky;
+      top: 40px;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Fixed Profile Photo Box */
+    .avatar-wrapper {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 20px auto;
+      position: relative;
+      border-radius: 24px;
+      padding: 4px;
+      background: linear-gradient(135deg, #06b6d4, #6366f1);
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      background-color: #1a2333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .avatar-img svg {
+      width: 65px;
+      height: 65px;
+      fill: #38bdf8;
+    }
+
+    .user-name {
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+    }
+
+    .user-badge {
+      display: table;
+      margin: 8px auto 20px auto;
+      padding: 4px 12px;
+      background: rgba(56, 189, 248, 0.1);
+      color: #38bdf8;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 20px 0;
+    }
+
+    .info-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      color: #94a3b8;
+    }
+
+    .info-item strong {
+      color: #f1f5f9;
+      font-weight: 600;
+    }
+
+    .skills-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f8fafc;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-pill {
+      background: #1a2333;
+      color: #cbd5e1;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.2s ease;
+    }
+
+    .tech-pill:hover {
+      border-color: #06b6d4;
+      color: #38bdf8;
+    }
+
+    /* ================= RIGHT MAIN CONTENT ================= */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .card {
+      background: #111726;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-header {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-header span {
+      background: linear-gradient(135deg, #06b6d4, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .bio-text {
+      color: #94a3b8;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .focus-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .focus-card {
+      background: #182235;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      font-weight: 600;
+      font-size: 14px;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Projects Styling */
+    .project-item {
+      background: #182235;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(6, 182, 212, 0.4);
+    }
+
+    .project-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      color: #94a3b8;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag-item {
+      font-size: 12px;
+      background: rgba(99, 102, 241, 0.15);
+      color: #818cf8;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    
+    
+  </style>
+</head>
+<body>
+
+  <div class="portfolio-wrapper">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <!-- Profile Picture / Avatar -->
+      <div class="avatar-wrapper">
+        <div class="avatar-img">
+          <!-- Photo Placeholder Graphic (Agara photo ho to: <img src="your-photo.jpg" class="avatar-img">) -->
+          <svg viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </div>
+      </div>
+
+      <h1 class="user-name">Abdullah Adnan</h1>
+      <div class="user-badge">BSCS 5B • Air University</div>
+
+      <div class="divider"></div>
+
+      <div class="info-group">
+        <div class="info-item"><span>University</span> <strong>Air University</strong></div>
+        <div class="info-item"><span>Semester</span> <strong>5th Semester</strong></div>
+        <div class="info-item"><span>Location</span> <strong>Islamabad, PK</strong></div>
+        <div class="info-item"><span>Email</span> <strong>abdullah@example.com</strong></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="skills-title">Programming Stack</div>
+      <div class="tech-stack">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">C++</span>
+        <span class="tech-pill">JavaScript</span>
+        <span class="tech-pill">C#</span>
+      </div>
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT -->
+    <main class="main-content">
+      
+      <!-- Overview Card -->
+      <section class="card">
+        <h2 class="card-header"><span>//</span> Overview & Specialization</h2>
+        <p class="bio-text">
+          Computer Science (BSCS) student at Air University with a passion for building intelligent automation tools and exploring Deep Learning models. Focused on solving real-world data extraction and automated monitoring challenges through code.
+        </p>
+
+        <div class="focus-container">
+          <div class="focus-card">⚡ AI & Deep Learning</div>
+          <div class="focus-card">🕷️ Web Scraping</div>
+          <div class="focus-card">🤖 Web Automation</div>
+          <div class="focus-card">💻 Modern Web Tech</div>
+        </div>
+      </section>
+
+      <!-- Projects Card -->
+      <section class="card">
+        <h2 class="card-header"><span>//</span> Featured Projects</h2>
+
+        <!-- Project 1 -->
+        <div class="project-item">
+          <h3 class="project-name">Email Lead Generator Bot</h3>
+          <p class="project-desc">
+            An automated Python web scraping tool designed to parse target web pages, extract contact emails, and clean the data for marketing lead generation.
+          </p>
+          <div class="tag-group">
+            <span class="tag-item">Python</span>
+            <span class="tag-item">Web Scraping</span>
+            <span class="tag-item">Automation</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-item">
+          <h3 class="project-name">Amazon & eBay Automated Price Tracker</h3>
+          <p class="project-desc">
+            A smart monitoring bot that continuously scrapes target product prices on Amazon and eBay. Once the price drops to or below a user-defined threshold, it automatically triggers an instant email alert via SMTP.
+          </p>
+          <div class="tag-group">
+            <span class="tag-item">Python</span>
+            <span class="tag-item">BeautifulSoup / Selenium</span>
+            <span class="tag-item">SMTP Email</span>
+            <span class="tag-item">Price Tracking</span>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

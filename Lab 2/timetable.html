@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BSCS-V-B (Shift-I) Timetable</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .timetable-container {
+      background-color: #fff;
+      padding: 25px;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 1100px;
+      overflow-x: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 26px;
+      font-weight: bold;
+      color: #111;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      min-width: 900px;
+    }
+
+    th, td {
+      border: 1px solid #000;
+      padding: 8px 4px;
+      vertical-align: middle;
+      height: 75px;
+    }
+
+    th {
+      font-size: 11px;
+      font-weight: normal;
+      background-color: #fff;
+    }
+
+    .day-col {
+      font-weight: bold;
+      font-size: 22px;
+      width: 60px;
+    }
+
+    .teacher {
+      font-size: 11px;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .subject {
+      font-weight: bold;
+      font-size: 12px;
+      color: #000;
+      margin-bottom: 4px;
+    }
+
+    .room {
+      font-size: 11px;
+      color: #333;
+    }
+
+    .uni-cell {
+      font-size: 11px;
+      text-align: left;
+      vertical-align: top;
+      padding: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="timetable-container">
+  <h1>BSCS-V-B (Shift-I)</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="uni-cell">Uni</th>
+        <th>08:00am-09:00am</th>
+        <th>09:00am-10:00am</th>
+        <th>10:00am-11:00am</th>
+        <th>11:00am-12:00pm</th>
+        <th>12:00pm-01:00pm</th>
+        <th>01:00pm-02:00pm</th>
+        <th>02:00pm-03:00pm</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Monday -->
+      <tr>
+        <td class="day-col">Mo</td>
+        <td></td>
+        <td>
+          <div class="teacher">CS-Mr Hafiz Obeid Ullah Khan</div>
+          <div class="subject">Full Stack Web Development</div>
+          <div class="room">C-205 (Shift-I)</div>
+        </td>
+        <td>
+          <div class="teacher">CS-Dr. Waqas Hassan Farooqi</div>
+          <div class="subject">Linear Algebra</div>
+          <div class="room">C-301 (Shift-I)</div>
+        </td>
+        <td colspan="3">
+          <div class="teacher">CS-Ms Kanwal Ejaz</div>
+          <div class="subject">Artificial Intelligence Lab</div>
+          <div class="room">Lab 5 A Block (Shift-I)</div>
+        </td>
+        <td>
+          <div class="teacher">CS-Ms Warda Aslam</div>
+          <div class="subject">Operating Systems</div>
+          <div class="room">C-301 (Shift-I)</div>
+        </td>
+      </tr>
+
+      <!-- Tuesday -->
+      <tr>
+        <td class="day-col">Tu</td>
+        <td>
+          <div class="teacher">CS-Ms Warda Aslam</div>
+          <div class="subject">Operating Systems</div>
+          <div class="room">C-206 (Shift-I)</div>
+        </td>
+        <td>
+          <div class="teacher">CS-Mr Hafiz Obeid Ullah Khan</div>
+          <div class="subject">Full Stack Web Development</div>
+          <div class="room">C-301 (Shift-I)</div>
+        </td>
+        <td>
+          <div class="teacher">CS-Ms Ayesha</div>
+          <div class="subject">Introduction to Management</div>
+          <div class="room">C-206 (Shift-I)</div>
+        </td>
+        <td colspan="2"></td>
+        <td>
+          <div class="teacher">CS-Dr. Waqas Hassan Farooqi</div>
+          <div class="subject">Linear Algebra</div>
+          <div class="room">C-205 (Shift-I)</div>
+        </td>
+        <td>
+          <div class="teacher">CS-Ms Warda Aslam</div>
+          <div class="subject">Advisory Class</div>
+          <div class="room">C-201 (Shift-I)</div>
+        </td>
+      </tr>
+
+      <!-- Wednesday -->
+      <tr>
+        <td class="day-col">We</td>
+        <td></td>
+        <td>
+          <div class="teacher">CS-Dr. Mohammad Hassan Raza Khan</div>
+          <div class="subject">Design and Analysis of Algorithms</div>
+          <div class="room">Lecture Hall 01</div>
+        </td>
+        <td>
+          <div class="teacher">CS-Dr. Mohammad Hassan Raza Khan</div>
+          <div class="subject">Design and Analysis of Algorithms</div>
+          <div class="room">Lecture Hall 01</div>
+        </td>
+        <td colspan="3"></td>
+        <td>
+          <div class="teacher">CS-Ms Kanwal Ejaz</div>
+          <div class="subject">Artificial Intelligence</div>
+          <div class="room">C-205 (Shift-I)</div>
+        </td>
+      </tr>
+
+      <!-- Thursday -->
+      <tr>
+        <td class="day-col">Th</td>
+        <td></td>
+        <td>
+          <div class="teacher">CS-Dr. Mohammad Hassan Raza Khan</div>
+          <div class="subject">Design and Analysis of Algorithms</div>
+          <div class="room">Lecture Hall 01</div>
+        </td>
+        <td>
+          <div class="teacher">CS-Dr. Mohammad Hassan Raza Khan</div>
+          <div class="subject">Design and Analysis of Algorithms</div>
+          <div class="room">Lecture Hall 01</div>
+        </td>
+        <td colspan="3">
+          <div class="teacher">CS-Ms Warda Aslam</div>
+          <div class="subject">Operating Systems Lab</div>
+          <div class="room">Lab 13 C Block (3rd Floor) (Shift-I)</div>
+        </td>
+        <td>
+          <div class="teacher">CS-Ms Kanwal Ejaz</div>
+          <div class="subject">Artificial Intelligence</div>
+          <div class="room">C-302 (Shift-I)</div>
+        </td>
+      </tr>
+
+      <!-- Friday -->
+      <tr>
+        <td class="day-col">Fr</td>
+        <td></td>
+        <td>
+          <div class="teacher">CS-Ms Ayesha</div>
+          <div class="subject">Introduction to Management</div>
+          <div class="room">C-203 (Shift-I)</div>
+        </td>
+        <td>
+          <div class="teacher">CS-Dr. Waqas Hassan Farooqi</div>
+          <div class="subject">Linear Algebra</div>
+          <div class="room">C-203 (Shift-I)</div>
+        </td>
+        <td colspan="3">
+          <div class="teacher">CS-Mr Hafiz Obeid Ullah Khan</div>
+          <div class="subject">Full Stack Web Development Lab</div>
+          <div class="room">Lab 5 A Block (Shift-I)</div>
+        </td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

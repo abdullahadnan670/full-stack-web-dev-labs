@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inline & Relative Positioned Blocks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f4f4f9;
+    }
+
+    .inline-relative-box {
+      display: relative;
+      position: inline;
+      
+      
+      width: 150px;
+      height: 100px;
+      padding: 15px;
+      color: white;
+    }
+    .block-1 {
+      background-color: #3498db;
+   
+      top: 10px;
+      left: 10px;
+    }
+    .block-2 {
+      background-color: #e74c3c;
+      top: 30px;
+      left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Two Inline Blocks with Relative Positioning</h2>
+
+  <div class="inline-relative-box block-1">
+    Block 1
+  </div>
+
+  <div class="inline-relative-box block-2">
+    Block 2
+  </div>
+
+</body>
+</html>

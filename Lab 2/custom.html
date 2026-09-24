@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VORTEX RR-1000 | Superbike Showcase</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #0b0c10;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: rgba(11, 12, 16, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #00f2fe;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #c5c6c7;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00f2fe;
+    }
+
+    /* Product Showcase Grid */
+    .product-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      padding: 50px 8%;
+      align-items: center;
+      max-width: 1300px;
+      margin: 0 auto;
+      flex: 1;
+    }
+
+    /* Left: Image Card */
+    .image-card {
+      position: relative;
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, rgba(11, 12, 16, 1) 70%);
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgba(0, 242, 254, 0.2);
+    }
+
+    .bike-img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 30px rgba(0, 242, 254, 0.25));
+      transition: transform 0.4s ease;
+    }
+
+    .image-card:hover .bike-img {
+      transform: scale(1.05) rotate(-2deg);
+    }
+
+    .badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+      background: #00f2fe;
+      color: #0b0c10;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* Right: Product Details */
+    .product-details h1 {
+      font-size: 44px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #ffffff 0%, #00f2fe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tagline {
+      color: #45a29e;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .price-tag {
+      font-size: 32px;
+      font-weight: 800;
+      color: #00f2fe;
+      margin-bottom: 25px;
+    }
+
+    /* Bike Specs Grid */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .spec-card {
+      background: rgba(31, 40, 51, 0.6);
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+
+    .spec-val {
+      font-size: 20px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .spec-lbl {
+      font-size: 12px;
+      color: #c5c6c7;
+      margin-top: 4px;
+    }
+
+    .description {
+      color: #c5c6c7;
+      line-height: 1.6;
+      font-size: 15px;
+      margin-bottom: 30px;
+    }
+
+    /* Action Buttons */
+    .btn-group {
+      display: flex;
+      gap: 20px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+      color: #0b0c10;
+      border: none;
+      padding: 16px 36px;
+      font-size: 16px;
+      font-weight: 800;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 25px rgba(0, 242, 254, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      padding: 16px 32px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #00f2fe;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 900px) {
+      .product-container {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="navbar">
+    <div class="logo">VORTEX</div>
+    <ul class="nav-links">
+      <li><a href="#">Superbikes</a></li>
+      <li><a href="#">Electric</a></li>
+      <li><a href="#">Customization</a></li>
+      <li><a href="#">Support</a></li>
+    </ul>
+  </nav>
+
+  <!-- Product Showcase -->
+  <main class="product-container">
+    
+    <!-- Left: Bike Image Card -->
+    <div class="image-card">
+      <span class="badge">2026 EDITION</span>
+      <img class="bike-img" src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=900&auto=format&fit=crop" alt="Vortex RR-1000 Superbike">
+    </div>
+
+    <!-- Right: Product Info -->
+    <div class="product-details">
+      <h1>VORTEX RR-1000</h1>
+      <p class="tagline">Next-Gen Hyper Sport Performance</p>
+      
+      <div class="price-tag">$24,999</div>
+
+      <!-- Quick Specs -->
+      <div class="specs-grid">
+        <div class="spec-card">
+          <div class="spec-val">998 cc</div>
+          <div class="spec-lbl">Engine</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-val">212 HP</div>
+          <div class="spec-lbl">Power</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-val">315 km/h</div>
+          <div class="spec-lbl">Top Speed</div>
+        </div>
+      </div>
+
+      <p class="description">
+        Aerodynamic carbon-fiber chassis, titanium exhaust system, aur advanced AI-powered traction control ke sath tayyar ki gayi ek aggressive superbike. Perfect balance between raw power aur precision handling.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="btn-group">
+        <button class="btn-primary">Pre-Order Now</button>
+        <button class="btn-secondary">Book Test Ride</button>
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

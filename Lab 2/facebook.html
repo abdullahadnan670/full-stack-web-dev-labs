@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook - News Feed</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background-color: #f0f2f5;
+      color: #050505;
+    }
+
+    /* 1. TOP NAVBAR */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: #ffffff;
+      height: 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      color: #1877f2;
+      font-size: 28px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .search-bar input {
+      background-color: #f0f2f5;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 50px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-icon {
+      font-size: 14px;
+      font-weight: bold;
+      color: #65676b;
+      cursor: pointer;
+      padding: 12px 20px;
+      border-bottom: 3px solid transparent;
+    }
+
+    .nav-icon.active {
+      color: #1877f2;
+      border-bottom: 3px solid #1877f2;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .profile-badge {
+      width: 36px;
+      height: 36px;
+      background-color: #e4e6eb;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* 2. MAIN 3-COLUMN LAYOUT */
+    .container {
+      display: grid;
+      grid-template-columns: 280px 1fr 280px;
+      gap: 20px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* LEFT SIDEBAR */
+    .sidebar-left, .sidebar-right {
+      position: sticky;
+      top: 72px;
+      height: calc(100vh - 88px);
+      overflow-y: auto;
+    }
+
+    .sidebar-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .sidebar-menu-item:hover {
+      background-color: #e4e6eb;
+    }
+
+    /* CENTER NEWS FEED */
+    .feed {
+      max-width: 580px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* CREATE POST BOX */
+    .create-post {
+      background-color: #ffffff;
+      padding: 12px 16px;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      margin-bottom: 16px;
+    }
+
+    .post-input-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #e4e6eb;
+      padding-bottom: 12px;
+    }
+
+    .post-input {
+      width: 100%;
+      background-color: #f0f2f5;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      color: #65676b;
+    }
+
+    .post-options {
+      display: flex;
+      justify-content: space-around;
+      padding-top: 8px;
+    }
+
+    .post-option-btn {
+      padding: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #65676b;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .post-option-btn:hover {
+      background-color: #f0f2f5;
+    }
+
+    /* FEED CARD POST */
+    .post-card {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      margin-bottom: 16px;
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+    }
+
+    .author-name {
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .post-time {
+      font-size: 12px;
+      color: #65676b;
+    }
+
+    .post-text {
+      padding: 0 16px 12px 16px;
+      font-size: 15px;
+      line-height: 20px;
+    }
+
+    .post-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .post-actions {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #e4e6eb;
+      padding: 4px 0;
+      margin: 0 16px;
+    }
+
+    .action-btn {
+      flex: 1;
+      text-align: center;
+      padding: 8px 0;
+      font-weight: 600;
+      color: #65676b;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .action-btn:hover {
+      background-color: #f0f2f5;
+    }
+
+    /* RIGHT SIDEBAR (Contacts) */
+    .sidebar-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: #65676b;
+      margin-bottom: 12px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 990px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-left, .sidebar-right {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="#" class="logo">facebook</a>
+      <div class="search-bar">
+        <input type="text" placeholder="Search Facebook">
+      </div>
+    </div>
+
+    <div class="nav-center">
+      <div class="nav-icon active">Home</div>
+      <div class="nav-icon">Watch</div>
+      <div class="nav-icon">Marketplace</div>
+      <div class="nav-icon">Groups</div>
+    </div>
+
+    <div class="nav-right">
+      <div class="profile-badge">M</div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+    
+    <!-- Left Sidebar -->
+    <aside class="sidebar-left">
+      <div class="sidebar-menu-item">
+        <div class="profile-badge">M</div>
+        <span>My Profile</span>
+      </div>
+      <div class="sidebar-menu-item">👥 Friends</div>
+      <div class="sidebar-menu-item">🔖 Saved</div>
+      <div class="sidebar-menu-item">👨‍👩‍👧‍👦 Groups</div>
+      <div class="sidebar-menu-item">🕒 Memories</div>
+      <div class="sidebar-menu-item">⭐ Feeds</div>
+    </aside>
+
+    <!-- Center Feed -->
+    <main class="feed">
+      
+      <!-- Create Post Box -->
+      <div class="create-post">
+        <div class="post-input-container">
+          <div class="profile-badge">M</div>
+          <input type="text" class="post-input" placeholder="What's on your mind?">
+        </div>
+        <div class="post-options">
+          <div class="post-option-btn">🎥 Live video</div>
+          <div class="post-option-btn">🖼️ Photo/video</div>
+          <div class="post-option-btn">😊 Feeling/activity</div>
+        </div>
+      </div>
+
+      <!-- Sample Post Card 1 -->
+      <article class="post-card">
+        <div class="post-header">
+          <div class="profile-badge">A</div>
+          <div>
+            <div class="author-name">Ali Ahmed</div>
+            <div class="post-time">2 hrs ago</div>
+          </div>
+        </div>
+        <p class="post-text">Just started learning modern HTML and CSS flexbox/grid layout! Loving the control over building complex UI components.</p>
+        <img class="post-image" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&auto=format&fit=crop" alt="Code">
+        <div class="post-actions">
+          <div class="action-btn">👍 Like</div>
+          <div class="action-btn">💬 Comment</div>
+          <div class="action-btn">↪️ Share</div>
+        </div>
+      </article>
+
+      <!-- Sample Post Card 2 -->
+      <article class="post-card">
+        <div class="post-header">
+          <div class="profile-badge">S</div>
+          <div>
+            <div class="author-name">Sarah Khan</div>
+            <div class="post-time">5 hrs ago</div>
+          </div>
+        </div>
+        <p class="post-text">Beautiful weather today! Perfect day for learning something new.</p>
+        <div class="post-actions">
+          <div class="action-btn">👍 Like</div>
+          <div class="action-btn">💬 Comment</div>
+          <div class="action-btn">↪️ Share</div>
+        </div>
+      </article>
+
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="sidebar-right">
+      <div class="sidebar-title">Contacts</div>
+      <div class="sidebar-menu-item">
+        <div class="profile-badge">U</div>
+        <span>Usman Ghani</span>
+      </div>
+      <div class="sidebar-menu-item">
+        <div class="profile-badge">H</div>
+        <span>Hassan Raza</span>
+      </div>
+      <div class="sidebar-menu-item">
+        <div class="profile-badge">Z</div>
+        <span>Zainab Bibi</span>
+      </div>
+    </aside>
+
+  </div>
+
+</body>
+</html>
