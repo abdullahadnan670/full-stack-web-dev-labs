@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Tutorial - Complete Guide</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* ===================================================
+           1. SIDEBAR CSS (Sub se simple tariqa)
+           =================================================== */
+        .sidebar {
+            width: 240px;             /* Sidebar ki chohdai */
+            height: 100vh;            /* 100vh = Full screen height */
+            position: fixed;          /* Screen par fixed rahe ga, scroll nahi hoga */
+            top: 0;
+            left: 0;
+            background-color: #212529; /* Dark Background */
+            background: linear-gradient(180deg, #2c3e50, #000000);
+            padding-top: 20px;
+        }
+
+        /* Sidebar ke links ki styling */
+        .sidebar a {
+            display: block;           /* Har link alag line me aaye ga */
+            color: #c2c7d0;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Hover Effect (jab mouse upar layen) */
+        .sidebar a:hover {
+            color: #ffffff;
+            background-color: #0d6efd; /* Blue Color */
+        }
+
+
+        /* ===================================================
+           2. MAIN CONTENT CSS
+           =================================================== */
+        .main-content {
+            margin-left: 240px;       /* Pura content 240px right side push ho jaye ga */
+        }
+
+
+        /* ===================================================
+           3. EXTRA PAGE STYLES
+           =================================================== */
+        .section-divider {
+            margin: 4rem 0;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 2rem;
+        }
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .demo-box {
+            background: linear-gradient(45deg, #007bff, #b30000);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 0.375rem;
+            margin: 0.5rem;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+        <h4 class="text-white text-center mb-4"><i class="fas fa-code"></i> Tutorial</h4>
+        <a href="#grid"><i class="fas fa-th me-2"></i> Grid System</a>
+        <a href="#flexbox"><i class="fas fa-arrows-alt me-2"></i> Flexbox</a>
+        <a href="#buttons"><i class="fas fa-mouse-pointer me-2"></i> Buttons</a>
+        <a href="#cards"><i class="fas fa-id-card me-2"></i> Cards</a>
+        <a href="#components"><i class="fas fa-puzzle-piece me-2"></i> Components</a>
+        <a href="#media-queries"><i class="fas fa-mobile-alt me-2"></i> Media Queries</a>
+    </div>
+
+    <!-- RIGHT MAIN CONTENT (SIDEBAR KE AAGE) -->
+    <div class="main-content">
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container text-center">
+                <h1 class="display-4 fw-bold mb-3">Master Bootstrap Framework</h1>
+                <p class="lead mb-4">Learn responsive web design with Bootstrap's powerful components</p>
+                <a href="#grid" class="btn btn-light btn-lg">Start Learning</a>
+            </div>
+        </section>
+
+        <div class="container">
+
+            <!-- Grid System Section -->
+            <section id="grid" class="section-divider">
+                <h2 class="mb-4"><i class="fas fa-th"></i> Bootstrap Grid System</h2>
+                <p class="lead">Bootstrap's grid system uses containers, rows, and columns to layout and align content.</p>
+                
+                <div class="code-example">
+                    <h5>Basic Grid Example:</h5>
+                    <div class="row">
+                        <div class="col-12 col-lg-3 col-md-4">
+                            <div class="demo-box">Column 1 (md-4)</div>
+                        </div>
+                        <div class="col-12 col-lg-3 col-md-4">
+                            <div class="demo-box">Column 2 (md-4)</div>
+                        </div>
+                        <div class="col-12 col-lg-3 col-md-4">
+                            <div class="demo-box">Column 3 (md-4)</div>
+                        </div>
+                        <div class="col-12 col-lg-3 col-md-4">
+                            <div class="demo-box">Column (md-4)</div>
+                        </div>
+                        <div class="col-12 col-lg-3 col-md-4">
+                            <div class="demo-box">Column (md-4)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <h5>Responsive Grid:</h5>
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="demo-box">Responsive Col</div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="demo-box">Responsive Col</div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="demo-box">Responsive Col</div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="demo-box">Responsive Col</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    <strong>Key Points:</strong>
+                    <ul class="mb-0">
+                        <li>Use <code>.container</code> or <code>.container-fluid</code> for proper alignment</li>
+                        <li>Rows must be placed within containers</li>
+                        <li>Columns must be immediate children of rows</li>
+                        <li>Grid system is based on 12 columns</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Flexbox Section -->
+            <section id="flexbox" class="section-divider">
+                <h2 class="mb-4"><i class="fas fa-arrows-alt"></i> Bootstrap Flexbox Utilities</h2>
+                <p class="lead">Bootstrap includes flexbox utilities for controlling layout, alignment, and spacing.</p>
+
+                <div class="code-example">
+                    <h5>Flex Direction & Justify Content:</h5>
+                    <div class="d-flex justify-content-between p-3 bg-light border rounded">
+                        <div class="p-2 bg-primary text-white rounded">Item 1</div>
+                        <div class="p-2 bg-success text-white rounded">Item 2</div>
+                        <div class="p-2 bg-danger text-white rounded">Item 3</div>
+                    </div>
+                    <small class="text-muted">justify-content-between</small>
+                </div>
+
+                <div class="code-example">
+                    <h5>Align Items:</h5>
+                    <div class="d-flex align-items-center justify-content-center bg-light border rounded" style="height: 100px;">
+                        <div class="p-2 bg-warning text-dark rounded">Centered Item</div>
+                    </div>
+                    <small class="text-muted">align-items-center & justify-content-center</small>
+                </div>
+
+                <div class="code-example">
+                    <h5>Flex Wrap:</h5>
+                    <div class="d-flex flex-wrap p-3 bg-light border rounded">
+                        <div class="p-2 m-1 bg-info text-white rounded flex-fill">Flexible Item 1</div>
+                        <div class="p-2 m-1 bg-info text-white rounded flex-fill">Flexible Item 2</div>
+                        <div class="p-2 m-1 bg-info text-white rounded flex-fill">Flexible Item 3</div>
+                        <div class="p-2 m-1 bg-info text-white rounded flex-fill">Flexible Item 1</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Buttons Section -->
+            <section id="buttons" class="section-divider">
+                <h2 class="mb-4"><i class="fas fa-mouse-pointer"></i> Bootstrap Buttons</h2>
+                <p class="lead">Bootstrap provides various button styles and sizes for different use cases.</p>
+
+                <div class="code-example">
+                    <h5>Button Variants:</h5>
+                    <button type="button" class="btn btn-primary me-2">Primary</button>
+                    <button type="button" class="btn btn-secondary me-2">Secondary</button>
+                    <button type="button" class="btn btn-success me-2">Success</button>
+                    <button type="button" class="btn btn-danger me-2">Danger</button>
+                    <button type="button" class="btn btn-warning me-2">Warning</button>
+                    <button type="button" class="btn btn-info me-2">Info</button>
+                    <button type="button" class="btn btn-light me-2">Light</button>
+                    <button type="button" class="btn btn-dark">Dark</button>
+                </div>
+
+                <div class="code-example">
+                    <h5>Button Sizes:</h5>
+                    <button type="button" class="btn btn-primary btn-lg me-2">Large</button>
+                    <button type="button" class="btn btn-primary me-2">Default</button>
+                    <button type="button" class="btn btn-primary btn-sm">Small</button>
+                </div>
+
+                <div class="code-example">
+                    <h5>Outline Buttons:</h5>
+                    <button type="button" class="btn btn-outline-primary me-2">Primary</button>
+                    <button type="button" class="btn btn-outline-success me-2">Success</button>
+                    <button type="button" class="btn btn-outline-danger">Danger</button>
+                </div>
+
+                <div class="code-example">
+                    <h5>Button Group:</h5>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-primary">Left</button>
+                        <button type="button" class="btn btn-outline-primary">Middle</button>
+                        <button type="button" class="btn btn-outline-primary">Right</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cards Section -->
+            <section id="cards" class="section-divider">
+                <h2 class="mb-4"><i class="fas fa-id-card"></i> Bootstrap Cards</h2>
+                <p class="lead">Cards provide a flexible content container with multiple variants and options.</p>
+
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/400x200/007bff/ffffff?text=Card+Image" class="card-img-top" alt="Card image">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <div class="card text-white bg-dark">
+                            <div class="card-header">
+                                <i class="fas fa-star"></i> Featured
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Dark Card</h5>
+                                <p class="card-text">This is a dark card with white text for contrast.</p>
+                            </div>
+                            <div class="card-footer">
+                                <small>Last updated 3 mins ago</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <div class="card border-success">
+                            <div class="card-header bg-transparent border-success">Success Card</div>
+                            <div class="card-body text-success">
+                                <h5 class="card-title">Special Card</h5>
+                                <p class="card-text">This card has custom border and text colors.</p>
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item">Feature 1</div>
+                                    <div class="list-group-item">Feature 2</div>
+                                    <div class="list-group-item">Feature 3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Components Section -->
+            <section id="components" class="section-divider">
+                <h2 class="mb-4"><i class="fas fa-puzzle-piece"></i> Other Bootstrap Components</h2>
+
+                <div class="code-example">
+                    <h5>Alerts:</h5>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="fas fa-check-circle"></i> <strong>Well done!</strong> You successfully read this important alert message.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <h5>Modal Example:</h5>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Launch Modal
+                    </button>
+                </div>
+            </section>
+
+            <!-- Media Queries Section -->
+            <section id="media-queries" class="section-divider">
+                <h2 class="mb-4"><i class="fas fa-mobile-alt"></i> Bootstrap Media Queries</h2>
+                <p class="lead">Bootstrap uses media queries to create responsive breakpoints.</p>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white text-center py-4 mt-5">
+            <div class="container">
+                <p>&copy; 2024 Bootstrap Tutorial. Built with Bootstrap 5</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Modal Component -->
+    <div class="modal fade" id="exampleModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Bootstrap Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a Bootstrap modal example.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

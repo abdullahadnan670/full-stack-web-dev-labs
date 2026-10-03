@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IEEE Format Paper - Abdullah Adnan</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #525659;
+      font-family: 'Times New Roman', Times, serif;
+      color: #000000;
+    }
+    .paper-card {
+      max-width: 850px;
+    }
+    .abstract-text {
+      font-size: 9pt;
+      text-align: justify;
+    }
+    .paper-body {
+      column-count: 2;
+      column-gap: 24px;
+      column-rule: 1px solid #e0e0e0;
+      font-size: 10pt;
+      line-height: 1.15;
+      text-align: justify;
+    }
+    .paper-body p {
+      text-indent: 15px;
+      margin-bottom: 6px;
+    }
+    .paper-body h2 {
+      font-size: 10pt;
+      letter-spacing: 0.5px;
+    }
+    .paper-body h3 {
+      font-size: 10pt;
+    }
+    .ref-item {
+      text-indent: -15px;
+      padding-left: 15px;
+      font-size: 8pt;
+    }
+    @media (max-width: 650px) {
+      .paper-body {
+        column-count: 1;
+      }
+    }
+  </style>
+</head>
+<body class="py-4 px-2">
+
+  <article class="paper-card bg-white shadow mx-auto p-4 p-md-5">
+    
+    <header class="text-center mb-4">
+      <h1 class="fs-3 fw-bold mb-3 lh-sm">Automated Web Scraping and E-Commerce Price Monitoring System</h1>
+      
+      <div class="d-flex justify-content-center flex-wrap gap-4 text-center small mb-3">
+        <div>
+          <div class="fw-bold">Abdullah Adnan</div>
+          <div class="fst-italic text-secondary">Department of Computer Science</div>
+          <div class="fst-italic text-secondary">Air University, Islamabad</div>
+          <div>abdullah@example.com</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="abstract-text px-2 mb-4">
+      <p class="m-0 mb-2" style="text-indent: 0;">
+        <span class="fw-bold fst-italic">Abstract—</span>This paper presents an automated web scraping framework designed for real-time lead generation and product price monitoring across e-commerce platforms such as Amazon and eBay. The system extracts targeted metadata, filters contact details, and tracks price variations to trigger automated SMTP notifications upon reaching predefined target thresholds.
+      </p>
+      <p class="m-0" style="text-indent: 0;">
+        <span class="fw-bold fst-italic">Index Terms—</span>Web Scraping, Automation, Python, Price Tracking, Lead Generation, Information Extraction.
+      </p>
+    </div>
+
+    <main class="paper-body">
+      
+      <h2 class="text-center text-uppercase fw-normal mt-3 mb-1">I. Introduction</h2>
+      <p>
+        The rapid expansion of e-commerce platforms has created a vast ecosystem of dynamically changing product data. Manual tracking of price fluctuations across multiple vendors is computationally inefficient and time-consuming.
+      </p>
+      <p>
+        In this work, we propose a modular Python-based automation tool that periodically scrapes product details, stores history, and alerts users when targeted discount thresholds are met.
+      </p>
+
+      <h2 class="text-center text-uppercase fw-normal mt-3 mb-1">II. Related Work</h2>
+      <p>
+        Data extraction techniques relying on Document Object Model (DOM) parsing have evolved significantly. Traditional regex parsers are often brittle against modern client-side rendering frameworks.
+      </p>
+
+      <h2 class="text-center text-uppercase fw-normal mt-3 mb-1">III. Methodology</h2>
+      <p>
+        The proposed system consists of three primary modules: the Scraping Engine, the Data Processing Unit, and the SMTP Alert Dispatcher.
+      </p>
+
+      <h3 class="fst-italic fw-normal mt-2 mb-1">A. Scraping Engine</h3>
+      <p>
+        Utilizing BeautifulSoup and headless Selenium drivers, the scraper bypasses dynamic JavaScript rendering to extract price tags and seller emails efficiently.
+      </p>
+
+      <div class="border bg-light p-2 text-center my-3 rounded-1">
+        <strong class="d-block small">[ System Architecture Diagram ]</strong>
+        <div class="small mt-1 text-secondary" style="text-indent: 0;">Fig. 1. High-level workflow of the price tracking bot.</div>
+      </div>
+
+      <h3 class="fst-italic fw-normal mt-2 mb-1">B. Price Alert Logic</h3>
+      <p>
+        The threshold comparison algorithm operates on a daily schedule, checking extracted numerical values against target variables defined in the database.
+      </p>
+
+      <h2 class="text-center text-uppercase fw-normal mt-3 mb-1">IV. Results & Discussion</h2>
+      <p>
+        Experimental evaluations demonstrated a 98.4% accuracy rate in email lead identification and automated alert execution within 1.2 seconds of price changes.
+      </p>
+
+      <h2 class="text-center text-uppercase fw-normal mt-3 mb-1">V. Conclusion</h2>
+      <p>
+        The developed automation tool proves effective for consumer market monitoring. Future enhancements include integrating deep learning models for anti-scraping CAPTCHA resolution.
+      </p>
+
+      <h2 class="text-center text-uppercase fw-normal mt-3 mb-2">References</h2>
+      <div class="references">
+        <div class="ref-item mb-1">[1] J. Doe, "Modern Web Scraping Techniques," <em>IEEE Trans. Softw. Eng.</em>, vol. 45, no. 2, pp. 112–120, 2023.</div>
+        <div class="ref-item mb-1">[2] A. Adnan, "Automated Lead Extraction Architecture," <em>Air University CS Journal</em>, vol. 12, pp. 45–50, 2025.</div>
+      </div>
+
+    </main>
+
+  </article>
+
+</body>
+</html>
