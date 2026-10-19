@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ConnecFriend - Login</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-white min-h-screen flex items-center justify-center p-5">
+
+  <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl max-w-md w-full shadow-xl">
+    <h1 class="text-3xl font-black text-emerald-400 mb-2">ConnecFriend</h1>
+    <p class="text-slate-400 text-sm mb-6">Sign in to your account</p>
+
+    <!-- Simple Login Form -->
+    <form onsubmit="handleLogin(event)">
+      <label class="block mb-4 text-sm font-semibold">
+        Username
+        <input id="username" type="text" required class="w-full mt-1 p-3 rounded-xl bg-slate-950 border border-slate-800 text-white outline-none focus:border-emerald-400">
+      </label>
+
+      <label class="block mb-6 text-sm font-semibold">
+        Password
+        <input id="password" type="password" required class="w-full mt-1 p-3 rounded-xl bg-slate-950 border border-slate-800 text-white outline-none focus:border-emerald-400">
+      </label>
+
+      <button type="submit" class="w-full bg-emerald-400 text-slate-950 font-black p-3 rounded-xl hover:bg-emerald-300 transition">Sign In</button>
+    </form>
+
+    <div class="mt-6 p-3 bg-slate-950 rounded-xl text-xs text-slate-400 border border-slate-800">
+      <p class="font-bold text-slate-200">Demo Account:</p>
+      <p>Username: <code class="text-emerald-400">alice</code> | Password: <code class="text-emerald-400">wonderland</code></p>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
